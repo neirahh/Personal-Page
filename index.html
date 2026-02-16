@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home | Neirah Ho</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo">Neirah Ho</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#experience">Experiences</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <div class="hero-card">
+      <!-- Left Side: Image -->
+      <div class="hero-image">
+        <img src="assets/headshot.jpg" alt="Your Name">
+      </div>
+      <!-- Right Side: Info -->
+      <div class="hero-info">
+        <h1>Neirah Ho</h1>
+        <div class="info-block">
+          <h4>Education</h4>
+          <p>Lehigh University</p>
+        </div>
+        <div class="info-block">
+          <h4>Email</h4>
+          <p>
+            <a href="mailto:neirahh@yahoo.com">neirahh@yahoo.com</a>
+          </p>
+        </div>
+        <div class="info-block">
+          <h4>GitHub</h4>
+          <p>
+            <a href="https://github.com/neirahh" target="_blank" rel="noopener noreferrer">
+              github.com/neirahh
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCES SECTION ===== -->
+  <section id="experience" class="section-container experiences-section">
+    <h2>EXPERIENCES</h2>
+    <div class="experience-cards">
+      <div class="experience-card">
+        <h3 class="company-name">Draft Studios</h3>
+        <p class="role-name">Web Development Intern</p>
+      </div>
+      <div class="experience-card">
+        <h3 class="company-name">Theodore T. Nguyen, CPA</h3>
+        <p class="role-name">Accounting Intern</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section-container skills-section">
+    <h2>SKILLS</h2>
+    <div class="skills-container">
+      <div class="skill-pill">Java</div>
+      <div class="skill-pill">JavaScript</div>
+      <div class="skill-pill">Python</div>
+      <div class="skill-pill">C</div>
+      <div class="skill-pill">C++</div>
+      <div class="skill-pill">HTML/CSS</div>
+      <div class="skill-pill">React</div>
+      <div class="skill-pill">Node.js</div>
+      <div class="skill-pill">Git</div>
+      <div class="skill-pill">SQL</div>
+      <div class="skill-pill">Excel</div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section-container projects-section">
+    <h2>PROJECTS</h2>
+    <p class="coming-soon">Coming soon...</p>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section-container contact-section">
+    <h2>CONTACT</h2>
+    <form class="contact-form">
+      <div class="name-row">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+      </div>
+      <input type="text" class="subject-input" placeholder="Subject" required>
+      <textarea placeholder="Message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.navbar nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe experience cards
+    document.querySelectorAll('.experience-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Observe skill pills
+    document.querySelectorAll('.skill-pill').forEach(pill => {
+      observer.observe(pill);
+    });
+
+    // Observe contact form
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+      observer.observe(contactForm);
+    }
+  </script>
+
+</body>
+</html>
