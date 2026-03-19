@@ -96,56 +96,18 @@
     <h2>CONTACT</h2>
     <form class="contact-form">
       <div class="name-row">
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name" required>
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
       </div>
-      <input type="text" class="subject-input" placeholder="Subject" required>
-      <textarea placeholder="Message" rows="6" required></textarea>
+      <input type="email" name="from_email" class="email-input" placeholder="Your Email" required>
+      <input type="text" name="subject" class="subject-input" placeholder="Subject" required>
+      <textarea name="message" placeholder="Message" rows="6" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <script>
-    // Smooth scroll for navigation links
-    document.querySelectorAll('.navbar nav a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Observe experience cards
-    document.querySelectorAll('.experience-card').forEach(card => {
-      observer.observe(card);
-    });
-
-    // Observe skill pills
-    document.querySelectorAll('.skill-pill').forEach(pill => {
-      observer.observe(pill);
-    });
-
-    // Observe contact form
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-      observer.observe(contactForm);
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
