@@ -355,7 +355,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     flex-direction: column;
-justify-content: center;
+    justify-content: center;
 
     /* Initial state */
     opacity: 0;
