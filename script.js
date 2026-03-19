@@ -61,7 +61,7 @@ function easeInOutCubic(t) {
   
   
 // ===== FORMSPREE CONTACT FORM =====
-  const FORMSPREE_ENDPOINT = '';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvrndvp';
   
   const form = document.querySelector('.contact-form');
   
